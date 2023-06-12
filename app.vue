@@ -3,14 +3,11 @@
     <div class="external-container">
       <Header />
 
-      
-        <div class="chat-list">
-          <ChatsList />
-        </div>
-        <div class="messages">messages</div>
-        <div class="menu">menu</div> 
-       
-    
+      <div class="chat-list">
+        <ChatsList />
+      </div>
+      <div class="messages">messages</div>
+      <div class="menu">menu</div>
     </div>
   </div>
 </template>
@@ -22,16 +19,13 @@
   grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 3.875rem;
   inline-size: 100%;
   block-size: 100%;
-  // border: 1px solid red;
-
- 
-
+  border: 1px solid#DEDEDE;
 }
 
 .header {
   grid-column: 1/4;
   grid-row: 1 / 2;
- // border: 1px solid red;
+  // border: 1px solid red;
 }
 
 .chat-list {
@@ -54,15 +48,14 @@
 useHead({
   link: [
     {
-      rel: 'preconnect',
-      href: 'https://fonts.googleapis.com'
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
     },
     {
-      rel: 'stylesheet',
+      rel: "stylesheet",
       href: 'href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap',
-      crossorigin: ''
-    }
-  ]
-})
+      crossorigin: "",
+    },
+  ],
+});
 </script>
-

@@ -34,7 +34,7 @@
   
   body {
     /* Prevent the rubber band effect when the user scrolls to the top or bottom of the page (WebKit only) */
-    
+    overflow: hidden;
   
     /* Prevent the browser from synthesizing missing typefaces */
     font-synthesis: none;
