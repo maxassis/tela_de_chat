@@ -2,7 +2,6 @@
   <div class="container">
     <div class="external-container">
       <Header />
-
       <div class="chat-list">
         <ChatsList />
       </div>

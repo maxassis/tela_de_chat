@@ -2,7 +2,7 @@
   <div class="message-search">
     <div class="message-search__input-wrapper">
       <div class="message-search__icon">
-        <img src="../public/images/lupa.svg" style="width: 20px" />
+        <img src="../images/lupa.svg" style="width: 20px" />
       </div>
       <input type="text" placeholder="Pesquisar mensagem" />
     </div>
@@ -39,14 +39,33 @@
     </div>
   </div>
 
-  <div class="checks-wrapper">
+  <div class="checks__wrapper">
+    <div class="checks__single-item">
+      <img src="../images/archive.svg" />
+      <input type="checkbox" />
+    </div>
+    <div class="checks__single-item">
+      <img src="../images/mail.svg" />
+      <input type="checkbox" />
+    </div>
+    <div class="checks__single-item">
+      <img src="../images/star.svg" />
+      <input type="checkbox" />
+    </div>
+    <div class="checks__single-item">
+      <img src="../images/transmission.svg" />
+      <input type="checkbox" />
+    </div>
+  </div>
 
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-
-
+  <div class="list">
+    <div class="list__top-bar">
+      <div class="list__hidden-list">
+        <img src="../images/up.svg" />
+        <span>Esconder filtros</span>
+      </div>
+      <span class="list__clean">Limpar</span>
+    </div>
   </div>
 </template>
 
@@ -145,10 +164,101 @@
   }
 }
 
-.checks-wrapper {
-  display: flex;
-  align-items: center;
-  block-size: 56px;
-  border-bottom: 1px solid #dedede;
+.checks {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 56px;
+    border-bottom: 1px solid #dedede;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  &__single-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 24px;
+    background: #ffffff;
+    border: 0.5px solid #dedede;
+    border-radius: 20px;
+    gap: 12px;
+    position: relative;
+
+    img {
+      left: 12px;
+      position: absolute;
+    }
+
+    input {
+      appearance: none;
+      border: 1.14286px solid #aab9c3;
+      border-radius: 1.06667px;
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      right: 12px;
+
+      &:checked {
+        background: #1fbd89;
+        border: 0;
+
+        &::after {
+          content: "";
+          width: 10px;
+          height: 5px;
+          border-right: 2.5px solid white;
+          border-top: 2.5px solid white;
+          position: absolute;
+          left: 2.5px;
+          top: 4px;
+          transform: rotate(130deg);
+        }
+      }
+    }
+  }
+}
+
+.list {
+  
+  &__top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    inline-size: 100%;
+    block-size: 54px;
+    padding-inline: 16px;
+    border-bottom: 1px solid #dedede;
+  }
+
+  &__hidden-list {
+    inline-size: 104px;
+    block-size: 22px;
+    background: #ffffff;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #BAB8B9;
+    cursor: pointer;
+    box-shadow: 0px 0px 6.13636px rgba(0, 0, 0, 0.1);
+    padding-inline-start: 8px;
+  }
+
+  &__clean {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration-line: underline;
+    color: #BAB8B9;
+    cursor: pointer;
+  }
+
+
 }
 </style>
