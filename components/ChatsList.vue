@@ -6,7 +6,7 @@
       </div>
       <input type="text" placeholder="Pesquisar mensagem" />
     </div>
-    <img src="../public/images/add.svg" />
+    <img src="../images/add.svg" />
   </div>
 
   <div class="inputs-section">
@@ -224,6 +224,7 @@
 }
 
 .list {
+  block-size: calc(100dvh - 436px);
   
   &__top-bar {
     display: flex;

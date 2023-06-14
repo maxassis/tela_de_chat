@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__user-wrapper">
-      <img src="../public/images/user.png" alt="user" />
+      <img src="../images/user.png" alt="user" />
 
       <div class="header__name-wrapper">
         <h3>Roberta da Silva</h3>
@@ -10,15 +10,15 @@
     </div>
 
     <div class="header__menu">
-      <img src="../public/images/zap.svg" />
+      <img src="../images/zap.svg" />
       <div class="header__divisor"></div>
-      <img src="../public/images/sino.svg" />
+      <img src="../images/sino.svg" />
       <div class="header__divisor"></div>
-      <img src="../public/images/volume.svg" />
+      <img src="../images/volume.svg" />
       <div class="header__divisor"></div>
-      <img src="../public/images/toggle.svg" style="width: 43px" />
+      <img src="../images/toggle.svg" style="width: 43px" />
       <div class="header__divisor"></div>
-      <img src="../public/images/logout.svg" />
+      <img src="../images/logout.svg" />
     </div>
   </div>
 </template>

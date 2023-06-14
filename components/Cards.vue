@@ -1,10 +1,11 @@
 <template>
-    <div class="card">
+    <div class="cards-wrapper">
+    <div class="card" v-for="card in cardsInfo">
         <img src="../images/user1.png" />
 
         <div class="card__infos">
             <div class="card__name-wrapper">
-                <h3 class="card__name">Ricardo Sá</h3>
+                <h3 class="card__name">{{card.name}}</h3>
 
                 <div class="card__user-status">
                     <span class="card__status yellow">
@@ -34,10 +35,23 @@
         </div>
     </div>
 
+</div>
 
+    
 </template>
 
+<script setup lang="ts">
+import { cardsInfo } from "../list_cards"
+
+</script>
+
+
 <style lang="scss" scoped>
+
+.cards-wrapper {
+    overflow: scroll;
+    block-size: calc(100% - 54px);
+}
 
 .card {
     display: grid;

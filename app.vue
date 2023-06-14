@@ -14,11 +14,14 @@
 <style scoped lang="scss">
 .external-container {
   display: grid;
-  grid-template-rows: 3.313rem calc(100dvh - 3.313rem);
+  grid-template-rows: 3.313rem calc(100% - 3.313rem);
   grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 3.875rem;
   inline-size: 100%;
-  block-size: 100%;
-  border: 1px solid#DEDEDE;
+  block-size: 100dvh;
+  //border: 1px solid#DEDEDE;
+  border: 1px solid red;
+  border-top: 0;
+  overflow: hidden;
 }
 
 .header {
