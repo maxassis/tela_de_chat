@@ -66,6 +66,8 @@
       </div>
       <span class="list__clean">Limpar</span>
     </div>
+
+    <Cards />
   </div>
 </template>
 
