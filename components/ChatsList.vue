@@ -58,18 +58,35 @@
     </div>
   </div>
 
-  <div class="list">
+  <div :class="['list', {'up': hide}]">
     <div class="list__top-bar">
       <div class="list__hidden-list">
         <img src="../images/up.svg" />
-        <span>Esconder filtros</span>
+        <span @click="toggleHide">{{hide ? 'Mostrar filtros' : 'Esconder filtros'}}</span>
       </div>
       <span class="list__clean">Limpar</span>
     </div>
 
-    <Cards />
+    <Cards :size="hide" />
   </div>
 </template>
+
+<script setup lang="ts">
+import {ref} from "vue"
+
+
+let hide = ref<boolean>(false)
+
+function toggleHide(): void {
+  hide.value = hide.value ? false : true;
+}
+
+
+</script>
+
+
+
+
 
 <style scoped lang="scss">
 .message-search {
@@ -225,6 +242,7 @@
 
 .list {
   block-size: calc(100dvh - 436px);
+  transition: transform 0.5s linear;
   
   &__top-bar {
     display: flex;
@@ -234,6 +252,7 @@
     block-size: 54px;
     padding-inline: 16px;
     border-bottom: 1px solid #dedede;
+    background-color: #FFFFFF;
   }
 
   &__hidden-list {
@@ -264,4 +283,9 @@
 
 
 }
+
+.up {
+  transform: translateY(-383px);
+}
+
 </style>

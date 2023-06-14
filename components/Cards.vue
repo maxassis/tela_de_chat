@@ -1,5 +1,5 @@
 <template>
-    <div class="cards-wrapper">
+    <div :class="['cards-wrapper', {'fullsize': size}]">
     <div class="card" v-for="card in cardsInfo">
         <img src="../images/user1.png" />
 
@@ -40,8 +40,12 @@
     
 </template>
 
+
 <script setup lang="ts">
 import { cardsInfo } from "../list_cards"
+
+const {size} = defineProps<{size: boolean}>()
+
 
 </script>
 
@@ -51,6 +55,7 @@ import { cardsInfo } from "../list_cards"
 .cards-wrapper {
     overflow: scroll;
     block-size: calc(100% - 54px);
+    background-color: #FFFFFF;
 }
 
 .card {
@@ -186,6 +191,10 @@ import { cardsInfo } from "../list_cards"
 
 .orange {
     background: #E25F16;
+}
+
+.fullsize {
+  block-size: auto;
 }
 
 </style>
