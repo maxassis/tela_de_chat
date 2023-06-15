@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="external-container">
+    <div :class="['external-container', {'menu--open': menu}]">
       <Header />
       <div class="chat-list">
         <ChatsList />
@@ -8,45 +8,17 @@
       <div class="messages">
         <Messages />
       </div>
-      <div class="menu">menu</div>
+      <div class="options">
+        <Options />
+      </div>
+      <div class="menu">
+        <SideMenu 
+        @menu="toggleMenu"
+        />
+      </div>
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-.external-container {
-  display: grid;
-  grid-template-rows: 3.313rem calc(100% - 3.313rem);
-  grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 3.875rem;
-  inline-size: 100%;
-  block-size: 100dvh;
-  //border: 1px solid#DEDEDE;
-  border: 1px solid red;
-  border-top: 0;
-  overflow: hidden;
-}
-
-.header {
-  grid-column: 1/4;
-  grid-row: 1 / 2;
-  // border: 1px solid red;
-}
-
-.chat-list {
-  grid-column: 1/2;
-  grid-row: 2 / 3;
-}
-
-.messages {
-  grid-column: 2/3;
-  grid-row: 2 / 3;
-}
-
-.menu {
-  grid-column: 3/4;
-  grid-row: 2 / 3;
-}
-</style>
 
 <script setup lang="ts">
 useHead({
@@ -62,4 +34,66 @@ useHead({
     },
   ],
 });
+
+let menu = ref<boolean>(false)
+
+function toggleMenu(dt: boolean) {
+  dt ? menu.value = true : menu.value = false
+}
+
 </script>
+
+<style scoped lang="scss">
+.external-container {
+  display: grid;
+  grid-template-rows: 3.313rem calc(100% - 3.313rem);
+  grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 0px 3.875rem;
+  inline-size: 100%;
+  block-size: 100dvh;
+  //border: 1px solid#DEDEDE;
+  border: 1px solid red;
+  border-top: 0;
+  overflow: hidden;
+  transition: grid-template-columns 0.5s linear;
+}
+
+.header {
+  grid-column: 1/5;
+  grid-row: 1 / 2;
+  // border: 1px solid red;
+}
+
+.chat-list {
+  grid-column: 1/2;
+  grid-row: 2 / 3;
+}
+
+.messages {
+  grid-column: 2/3;
+  grid-row: 2 / 3;
+}
+
+.options {
+  grid-column: 3/4;
+  grid-row: 2 / 3;
+  overflow: hidden;
+}
+
+.menu {
+  grid-column: 4/5;
+  grid-row: 2 / 3;
+  //background-color:#FFFFFF;
+}
+
+.menu--open {
+  grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
+  padding-inline: 0;
+  margin: 0;
+  //grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) calc(3.875rem + 19.813rem)
+  //grid-template-columns: 19.813rem 1061px calc(3.875rem + 19.813rem);
+}
+
+
+</style>
+
+
