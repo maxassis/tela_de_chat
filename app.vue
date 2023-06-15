@@ -5,7 +5,9 @@
       <div class="chat-list">
         <ChatsList />
       </div>
-      <div class="messages">messages</div>
+      <div class="messages">
+        <Messages />
+      </div>
       <div class="menu">menu</div>
     </div>
   </div>
