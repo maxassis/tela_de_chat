@@ -73,15 +73,13 @@
     font: inherit;
   }
   
-  /* Create a root stacking context (only when using frameworks like Next.js) */
-  #__next {
-    isolation: isolate;
-  }
+
+// Components
 
 .container {
   inline-size: min(100%, 90rem);
   margin-inline: auto;
-  // block-size: 100vh;
+
 }
 
 .red {
@@ -98,4 +96,21 @@
     box-sizing: border-box;
     //background: rgb(0 100 0 / 0.1) !important;
   }
+}
+
+
+.input {
+  padding-inline-start: 10px;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 2px;
+  outline: none;
+  font-size: 12px;
+
+  &:focus {
+    border: 1px solid #DEDEDE;
+    border-color: #1fbd89;
+  }
+
+
 }

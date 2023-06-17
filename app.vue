@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div :class="['external-container', {'menu--open': menu}]">
+    <div :class="['external-container',  {'menu--open': option !== ''}]">
       <Header />
       <div class="chat-list">
         <ChatsList />
@@ -12,15 +12,16 @@
         <Options />
       </div>
       <div class="menu">
-        <SideMenu 
-        @menu="toggleMenu"
-        />
+        <SideMenu />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import {option} from './store/options';
+
+
 useHead({
   link: [
     {
@@ -35,12 +36,7 @@ useHead({
   ],
 });
 
-let menu = ref<boolean>(false)
-
-function toggleMenu(dt: boolean) {
-  dt ? menu.value = true : menu.value = false
-}
-
+console.log("main", option.value)
 </script>
 
 <style scoped lang="scss">

@@ -1,32 +1,32 @@
 <template>
-    <div class="menu" v-bind:style= "[menu ? 'borderInlineStart: 0' : 'borderInlineStart: 0.5px solid #dedede69']">
+    <div class="menu" > 
 
         <div class="menu__itens-wrapper">
-        <div class="menu__item" @click="showMenu">
-            <img src="../images/user.svg" />
+        <div class="menu__item" >
+            <img src="../images/user.svg" @click="changeOption('user')"/>
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('notes')">
             <img src="../images/file.svg" />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('funnels')">
             <img src="../images/funil.svg" />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('dialogs')">
             <img src="../images/robot.svg"  />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('historic')">
             <img src="../images/graph.svg"/>
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('delegated')">
             <img src="../images/user-check.svg" />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('nps')">
             <img src="../images/pie.svg" />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('midias')">
             <img src="../images/play.svg" />
         </div>
-        <div class="menu__item" @click="showMenu">
+        <div class="menu__item" @click="changeOption('')">
             <img src="../images/close.svg" />
         </div>
         </div>
@@ -37,24 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const menu = ref(false); 
-defineExpose( { menu })
-const emit = defineEmits(['menu'])
-
-function showMenu() {
-    emit('menu', menu.value);
-    menu.value = !menu.value;
-}
-
-
-
-
+import options from '../store/options';
+const { changeOption } = options()
 </script>
-
-
-
 
 <style lang="scss" scoped>
 
