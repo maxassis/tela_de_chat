@@ -3,6 +3,7 @@
       <User v-if="option === 'user'" />  
       <Notes v-if="option === 'notes'" />
       <Funnels v-if="option === 'funnels'" />
+      <Chatbot v-if="option === 'chatbot'" />
   </div>
 </template>
 

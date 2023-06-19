@@ -48,7 +48,7 @@ console.log("main", option.value)
   block-size: 100dvh;
   //border: 1px solid#DEDEDE;
   border: 1px solid red;
-  border-top: 0;
+  border-block-start: 0;
   overflow: hidden;
   transition: grid-template-columns 0.5s linear;
 }

@@ -11,7 +11,7 @@
         <div class="menu__item" @click="changeOption('funnels')">
             <img src="../images/funil.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('dialogs')">
+        <div class="menu__item" @click="changeOption('chatbot')">
             <img src="../images/robot.svg"  />
         </div>
         <div class="menu__item" @click="changeOption('historic')">
