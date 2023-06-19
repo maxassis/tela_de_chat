@@ -4,6 +4,7 @@
       <Notes v-if="option === 'notes'" />
       <Funnels v-if="option === 'funnels'" />
       <Chatbot v-if="option === 'chatbot'" />
+      <Historic v-if="option === 'historic'" />
   </div>
 </template>
 
