@@ -111,13 +111,7 @@
                     <img src="../images/chatbot.svg" />
                 </div>
            </div>
-
-
-
         </div>
-
-
-
 
     </div>
 
@@ -131,34 +125,30 @@
     padding: 16px 18px 0 20px;
 
     &__title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        inline-size: 279px;
-        block-size: 31px;
-        margin-block-end: 12px;
+    display: flex;
+    inline-size: 279px;
+    block-size: 31px;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 12px;
 
-        >span {
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 11.375px;
-            display: flex;
-            align-items: center;
-            color: #333333;
+    > span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 40px;
+      color: #333333;
     }
+  }
 
-}
-
-&__icon {
+  &__icon {
     display: grid;
     place-items: center;
     inline-size: 24px;
     block-size: 24px;
-    background: #FFFFFF;
+    background: #ffffff;
     border: 1px solid rgba(92, 92, 92, 0.04);
     border-radius: 12px;
-    margin-block-end: 12px;
-}
+  }
 
 &__context-wrapper {
     display: flex;
@@ -176,7 +166,6 @@
         align-items: center;
         color: #333333;
     }
-
 
 }
 

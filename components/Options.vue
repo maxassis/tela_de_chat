@@ -5,7 +5,9 @@
       <Funnels v-else-if="option === 'funnels'" />
       <Chatbot v-else-if="option === 'chatbot'" />
       <Historic v-else-if="option === 'historic'" />
-      <Delegated v-else="option === 'delegated'" />
+      <Delegated v-else-if="option === 'delegated'" />
+      <Nps v-else-if="option === 'nps'" />
+      <Midias v-else="option === 'midias'" />
   </div>
 </template>
 
