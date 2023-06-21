@@ -2,7 +2,7 @@
   <div class="message-search">
     <div class="message-search__input-wrapper">
       <div class="message-search__icon">
-        <img src="../images/lupa.svg" style="width: 20px" />
+        <img src="../images/lupa.svg" style="inline-size: 20px" />
       </div>
       <input type="text" placeholder="Pesquisar mensagem" />
     </div>
@@ -60,9 +60,9 @@
 
   <div :class="['list', {'up': hide}]">
     <div class="list__top-bar">
-      <div class="list__hidden-list">
+      <div class="list__hidden-list" @click="toggleHide">
         <img src="../images/up.svg" />
-        <span @click="toggleHide">{{hide ? 'Mostrar filtros' : 'Esconder filtros'}}</span>
+        <span>{{hide ? 'Mostrar filtros' : 'Esconder filtros'}}</span>
       </div>
       <span class="list__clean">Limpar</span>
     </div>
@@ -73,7 +73,6 @@
 
 <script setup lang="ts">
 import {ref} from "vue"
-
 
 let hide = ref<boolean>(false)
 
@@ -90,8 +89,9 @@ function toggleHide(): void {
 
 <style scoped lang="scss">
 .message-search {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 23px;
   padding-inline: 1rem;
   inline-size: 100%;

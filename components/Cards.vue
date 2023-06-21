@@ -1,6 +1,6 @@
 <template>
     <div :class="['cards-wrapper', {'fullsize': size}]">
-    <div class="card" v-for="card in cardsInfo">
+    <div class="card" v-for="card in cardsInfo" :key="card.name" @click="changeScreen('messages')" >
         <img src="../images/user1.png" />
 
         <div class="card__infos">
@@ -42,10 +42,11 @@
 
 
 <script setup lang="ts">
-import { cardsInfo } from "../list_cards"
+import { cardsInfo } from "@/list_cards"
+import toogleScreen from '@/store/toggleScreen';
 
 const {size} = defineProps<{size: boolean}>()
-
+const { changeScreen } = toogleScreen()
 
 </script>
 
@@ -61,9 +62,11 @@ const {size} = defineProps<{size: boolean}>()
 .card {
     display: grid;
     grid-template-columns: 62px 1fr;
-    inline-size: 317px;
+    //inline-size: 317px;
+    inline-size: 100%;
     block-size: 91px;
-    border-bottom: 1px solid #dedede;
+    border-block-end: 1px solid #dedede;
+    cursor: pointer;
 
     >img {
         margin: 19px 0 0 16px;
@@ -123,7 +126,7 @@ const {size} = defineProps<{size: boolean}>()
     }
 
     &__message {
-        margin-top: 7px;
+        margin-block-start: 7px;
         display: flex;
         justify-content: space-between;
         align-items: center;    
@@ -132,6 +135,11 @@ const {size} = defineProps<{size: boolean}>()
     &__message-text {
         max-inline-size: 180px;
        
+        @media (width > 317px) {
+            max-inline-size: calc(100% - 80px)
+        }
+
+
         >h3 {
             font-weight: 400;
             font-size: 12px;
@@ -158,7 +166,7 @@ const {size} = defineProps<{size: boolean}>()
     }
 
     &__show-status {
-        margin-top: 7px;
+        margin-block-start: 7px;
         display: flex;
         gap: 2px;
     }

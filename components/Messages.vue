@@ -2,18 +2,23 @@
   <div class="messages">
     <div class="messages__top">
       <div class="messages__name">
+        <img class="messages__arrow" src="../images/left-arrow.svg" @click="changeScreen('chatlist')" />
         <img src="../images/user1.png" />
-        <h3>Ricardo Sá - Nome da empresa</h3>
+        <div>
+          <h3>Ricardo Sá - Nome da empresa</h3>
+          <span class="messages__status-mobile">AGUARDANDO</span>
+        </div>
       </div>
 
-      <div class="messages__menu-top">
+      <div class="messages__menu-top" >
         <div class="messages__box-status">
           <span>AGUARDANDO</span>
         </div>
         <div class="messages__search">
           <img src="../images/lupa.svg" />
         </div>
-        <img src="../images/vertical.svg" style="margin-left: 23.75px" />
+        <!-- <img src="../images/vertical.svg" style="margin-left: 23.75px" /> -->
+        <img class="messages__horizontal" src="../images/group-vertical.svg" />
       </div>
     </div>
 
@@ -35,7 +40,7 @@
         </div>
       </div>
 
-      <div class="messages__send ">
+      <div class="messages__send">
         <div class="messages__msg-wrapper">
           <div class="messages__msg-send">
             <span
@@ -48,7 +53,7 @@
         <img src="../images/user.png" />
       </div>
 
-      <div class="messages__received ">
+      <div class="messages__received">
         <img src="../images/user1.png" />
         <div class="messages__msg-wrapper">
           <div class="messages__msg-receive">
@@ -61,7 +66,7 @@
         </div>
       </div>
 
-      <div class="messages__send ">
+      <div class="messages__send">
         <div class="messages__msg-wrapper">
           <div class="messages__msg-send">
             <span
@@ -74,7 +79,7 @@
         <img src="../images/user.png" />
       </div>
 
-      <div class="messages__send ">
+      <div class="messages__send">
         <div class="messages__msg-wrapper">
           <div class="messages__msg-send">
             <span
@@ -183,6 +188,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import toogleScreen from '../store/toggleScreen';
+const { changeScreen } = toogleScreen()
+
+</script>
+
 <style lang="scss" scoped>
 .messages {
   display: grid;
@@ -199,7 +210,12 @@
     block-size: 94px;
     border-radius: 10px 10px 0 0;
     padding-inline: 20px 33.75px;
-    border-bottom: 1px solid #dedede;
+    border-block-end: 1px solid #dedede;
+
+    @media (width <= 600px) {
+      block-size: 78px;
+      padding-inline: 19.78px 17px;
+    }
   }
 
   &__name {
@@ -207,12 +223,49 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #333333;
+
+    @media (width <= 600px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  &__arrow {
+    cursor: pointer;
+    margin-inline-end: 5px;
+  }
+
+  &__status-mobile {
+    display: none;
+    padding: 2px 5px;
+    background: #eac645;
+    border-radius: 1.53656px;
+    font-weight: 600;
+    font-size: 10.7559px;
+    line-height: 13px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    margin-block-start: 8px;
+
+    @media (width <= 600px) {
+      display: inline-block;
+    }
   }
 
   &__menu-top {
     display: flex;
-    inline-size: 256px;
+    justify-content: flex-end;
+    inline-size: 205px;
     block-size: 27px;
+
+    @media (width <= 600px) {
+      inline-size: auto;
+    }
   }
 
   &__box-status {
@@ -220,27 +273,46 @@
     place-items: center;
     inline-size: 100%;
     max-inline-size: 157px;
-    height: 100%;
+    block-size: 100%;
     background-color: #eac645;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.05em;
     color: #ffffff;
+
+    @media (width <= 600px) {
+      display: none;
+    }
   }
 
   &__search {
     display: grid;
     place-items: center;
     inline-size: 30px;
-    height: 30px;
+    block-size: 30px;
     background: #aab9c3;
     margin-inline-start: 18px;
+
+    @media (width <= 600px) {
+      display: none;
+    }
+  }
+
+  &__horizontal {
+    display: none;
+    inline-size: 20px;
+    cursor: pointer;
+
+    @media (width <= 600px) {
+      display: block;
+    }
   }
 
   &__scroll-wrapper {
     background-color: #f8f9fc;
-    border-bottom: 1px solid #dedede;
+    border-block-end: 1px solid #dedede;
+    padding-inline: 24px;
     overflow: scroll;
   }
 
@@ -258,7 +330,7 @@
   &__received {
     display: flex;
     gap: 18px;
-    padding-inline-start: 24px;
+    // padding-inline-start: 24px;
     margin-block-end: 25px;
 
     > img {
@@ -271,7 +343,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 18px;
-    padding-inline-end: 24px;
+    // padding-inline-end: 24px;
     margin-block-end: 25px;
 
     > img {
@@ -292,6 +364,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 22px;
     margin-inline: auto;
     block-size: 49px;
   }
@@ -356,7 +429,7 @@
   &__record {
     display: grid;
     place-items: center;
-    inline-size: 49px;
+    min-inline-size: 49px;
     block-size: 49px;
     background: #1fbd89;
     border-radius: 2px;

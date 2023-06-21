@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div :class="['external-container',  {'menu--open': option !== ''}]">
+    <div :class="['external-container',  {'menu--open': option !== ''}, {'chalist--open': chatlist }, {'messages--open' : messages}]" >
       <Header />
       <div class="chat-list">
-        <ChatsList />
+        <ChatsList/>
       </div>
       <div class="messages">
         <Messages />
@@ -19,8 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import {option} from './store/options';
-
+import {option} from '@/store/options';
+import {chatlist, messages} from '@/store/toggleScreen';
 
 useHead({
   link: [
@@ -36,7 +36,7 @@ useHead({
   ],
 });
 
-console.log("main", option.value)
+//console.log("teste", screen.value)
 </script>
 
 <style scoped lang="scss">
@@ -46,47 +46,77 @@ console.log("main", option.value)
   grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 0px 3.875rem;
   inline-size: 100%;
   block-size: 100dvh;
-  //border: 1px solid#DEDEDE;
-  border: 1px solid red;
+  border: 1px solid#DEDEDE;
   border-block-start: 0;
   overflow: hidden;
   transition: grid-template-columns 0.5s linear;
+
+  @media (width <= 1440px) {
+    border: 0;
+  }
+
+  @media (width < 1340px) {
+    grid-template-columns: 19.813rem 1fr 0 0 !important;
+  }
+
+  @media (width < 910px) {
+    grid-template-columns: 1fr 0px 0 0 !important;
+  }
+    
 }
 
 .header {
   grid-column: 1/5;
   grid-row: 1 / 2;
-  // border: 1px solid red;
 }
 
 .chat-list {
   grid-column: 1/2;
   grid-row: 2 / 3;
+  overflow: hidden;
+  overflow: hidden;
+
 }
 
 .messages {
   grid-column: 2/3;
   grid-row: 2 / 3;
+  overflow: hidden;
 }
 
 .options {
   grid-column: 3/4;
   grid-row: 2 / 3;
   overflow: hidden;
+
+  // @media (width < 1340px) {
+  //   display: none;
+  // }
 }
 
 .menu {
   grid-column: 4/5;
   grid-row: 2 / 3;
-  //background-color:#FFFFFF;
+  overflow: hidden;
+  
+  // @media (width < 1340px) {
+  //   display: none;
+  // }
 }
 
 .menu--open {
   grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
   padding-inline: 0;
   margin: 0;
-  //grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) calc(3.875rem + 19.813rem)
-  //grid-template-columns: 19.813rem 1061px calc(3.875rem + 19.813rem);
+
+}
+
+.messages--open {
+  grid-template-columns: 0 1fr 0 0 !important;
+}
+
+.chalist--open {
+  grid-template-columns: 1fr 0 0 0 !important;
 }
 
 
