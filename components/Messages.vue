@@ -17,7 +17,7 @@
         <div class="messages__search">
           <img src="../images/lupa.svg" />
         </div>
-        <!-- <img src="../images/vertical.svg" style="margin-left: 23.75px" /> -->
+        <img class="messages__vertical" src="../images/vertical.svg"/>
         <img class="messages__horizontal" src="../images/group-vertical.svg" />
       </div>
     </div>
@@ -209,7 +209,7 @@ const { changeScreen } = toogleScreen()
     justify-content: space-between;
     block-size: 94px;
     border-radius: 10px 10px 0 0;
-    padding-inline: 20px 33.75px;
+    padding-inline: 20px 20.75px;
     border-block-end: 1px solid #dedede;
 
     @media (width <= 600px) {
@@ -285,6 +285,7 @@ const { changeScreen } = toogleScreen()
     line-height: 16px;
     letter-spacing: 0.05em;
     color: #ffffff;
+    padding-inline: 28px;
 
     @media (width <= 600px) {
       display: none;
@@ -294,7 +295,7 @@ const { changeScreen } = toogleScreen()
   &__search {
     display: grid;
     place-items: center;
-    inline-size: 30px;
+    min-inline-size: 30px;
     block-size: 30px;
     background: #aab9c3;
     margin-inline-start: 18px;
@@ -304,6 +305,20 @@ const { changeScreen } = toogleScreen()
     }
   }
 
+  &__vertical {
+    margin-inline-start: 13.75px;
+
+    @media (width > 1340px) {
+      display: none;
+    }
+
+    @media (width <= 600px) {
+      display: none;
+    }
+
+  }
+  
+  
   &__horizontal {
     display: none;
     inline-size: 20px;
