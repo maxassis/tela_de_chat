@@ -5,7 +5,7 @@
       <div class="chat-list">
         <ChatsList/>
       </div>
-      <div class="messages" ref="el">
+      <div class="messages">
         <Messages />
       </div>
       <div class="options">
@@ -21,7 +21,6 @@
 <script setup lang="ts">
 import {option} from '@/store/options';
 import {chatlist, messages} from '@/store/toggleScreen';
-//import { useElementSize } from '@vueuse/core'
 
 useHead({
   link: [
@@ -36,10 +35,6 @@ useHead({
     },
   ],
 });
-
-const el = ref(null)
-//console.log(el)
-//const { width } = useElementSize(el)
 
 </script>
 
@@ -93,9 +88,6 @@ const el = ref(null)
   grid-row: 2 / 3;
   overflow: hidden;
 
-  // @media (width < 1340px) {
-  //   display: none;
-  // }
 }
 
 .menu {
@@ -103,9 +95,6 @@ const el = ref(null)
   grid-row: 2 / 3;
   overflow: hidden;
   
-  // @media (width < 1340px) {
-  //   display: none;
-  // }
 }
 
 .menu--open {
@@ -116,38 +105,17 @@ const el = ref(null)
 }
 
 .messages--open {
-  //grid-template-columns: 0 1fr 0 0 !important;
 
   @media(width <910px) {
     grid-template-columns: 0 1fr 0 0 !important;
  }
-
-  // @media (width < 1340px) {
-  //   grid-template-columns: 19.813rem 1fr 0 0 !important;
-  // }
-
-  // @media (width > 910px) {
-  //   grid-template-columns: 19.813rem 1fr 0 0 !important;
-  // }
-
-
 }
 
 .chalist--open {
- // grid-template-columns: 1fr 0 0 0 !important;
 
  @media(width <910px) {
   grid-template-columns: 1fr 0 0 0 !important;
  }
-
-  // @media (width < 1340px) {
-  //   grid-template-columns: 19.813rem 1fr 0 0 !important;
-  // }
-
-  // @media (width < 910px) {
-  //   grid-template-columns: 1fr 0px 0 0 !important;
-  // }
-
 }
 
 
