@@ -2,7 +2,7 @@
   <div class="messages">
     <div class="messages__top">
       <div class="messages__name">
-        <img class="messages__arrow" src="../images/left-arrow.svg" @click="changeScreen('chatlist')" />
+        <img class="messages__arrow" src="../images/left-arrow.svg" @click="changeScreen('chatlist')"/>
         <img src="../images/user1.png" />
         <div>
           <h3>Ricardo Sá - Nome da empresa</h3>
@@ -190,14 +190,7 @@
 
 <script setup lang="ts">
 import toogleScreen from '../store/toggleScreen';
-//import { useElementSize } from '@vueuse/core'
 const { changeScreen } = toogleScreen()
-
-// const el = ref(null)
-// const { width, height } = useElementSize(el)
-
-
-
 
 </script>
 
@@ -245,6 +238,11 @@ const { changeScreen } = toogleScreen()
   &__arrow {
     cursor: pointer;
     margin-inline-end: 5px;
+    display: none;
+
+    @media (width < 910px) {
+      display: inline-block;
+    }
   }
 
   &__status-mobile {

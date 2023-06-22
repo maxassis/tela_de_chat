@@ -79,6 +79,7 @@ function togglePopup() {
 
     > img {
       inline-size: 24px;
+      cursor: pointer;
     }
 
     @media (width < 600px) {
