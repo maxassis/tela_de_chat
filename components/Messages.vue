@@ -190,7 +190,14 @@
 
 <script setup lang="ts">
 import toogleScreen from '../store/toggleScreen';
+//import { useElementSize } from '@vueuse/core'
 const { changeScreen } = toogleScreen()
+
+// const el = ref(null)
+// const { width, height } = useElementSize(el)
+
+
+
 
 </script>
 
