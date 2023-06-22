@@ -154,6 +154,7 @@ function togglePopup() {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.7s ease;
+    z-index: 999999;
   }
 
 

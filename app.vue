@@ -5,7 +5,7 @@
       <div class="chat-list">
         <ChatsList/>
       </div>
-      <div class="messages">
+      <div class="messages" >
         <Messages />
       </div>
       <div class="options">
@@ -21,6 +21,7 @@
 <script setup lang="ts">
 import {option} from '@/store/options';
 import {chatlist, messages} from '@/store/toggleScreen';
+// import { ref } from 'vue';
 
 useHead({
   link: [
@@ -36,13 +37,22 @@ useHead({
   ],
 });
 
+// let menu = ref(false);
+// function showMenu() {
+//   menu.value = true
+//   console.log(menu.value)
+// }
+
+
+
 </script>
 
 <style scoped lang="scss">
 .external-container {
   display: grid;
   grid-template-rows: 3.313rem calc(100% - 3.313rem);
-  grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 0px 3.875rem;
+ // grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 0px 3.875rem;
+  grid-template-columns: 19.813rem 1fr 0px 3.875rem;
   inline-size: 100%;
   block-size: 100dvh;
   border: 1px solid#DEDEDE;
@@ -54,11 +64,11 @@ useHead({
     border: 0;
   }
 
-  @media (width < 1340px) {
-    grid-template-columns: 19.813rem 1fr 0 0 !important;
-  }
+  // @media (width < 1340px) {
+  //   grid-template-columns: 19.813rem 1fr 0 0 !important;
+  // }
 
-  @media (width < 910px) {
+  @media (width < 1200px) {
     grid-template-columns: 1fr 0px 0 0 !important;
   }
     
@@ -98,7 +108,8 @@ useHead({
 }
 
 .menu--open {
-  grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
+ // grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
+ grid-template-columns: 19.813rem 1fr 19.813rem 3.875rem;
   padding-inline: 0;
   margin: 0;
 
@@ -106,7 +117,7 @@ useHead({
 
 .messages--open {
 
-  @media(width <910px) {
+  @media(width <1200px) {
     grid-template-columns: 0 1fr 0 0 !important;
  }
 }
@@ -117,7 +128,6 @@ useHead({
   grid-template-columns: 1fr 0 0 0 !important;
  }
 }
-
 
 </style>
 

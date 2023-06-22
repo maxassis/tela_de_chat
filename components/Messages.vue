@@ -2,7 +2,11 @@
   <div class="messages">
     <div class="messages__top">
       <div class="messages__name">
-        <img class="messages__arrow" src="../images/left-arrow.svg" @click="changeScreen('chatlist')"/>
+        <img
+          class="messages__arrow"
+          src="../images/left-arrow.svg"
+          @click="changeScreen('chatlist')"
+        />
         <img src="../images/user1.png" />
         <div>
           <h3>Ricardo Sá - Nome da empresa</h3>
@@ -10,15 +14,23 @@
         </div>
       </div>
 
-      <div class="messages__menu-top" >
+      <div class="messages__menu-top">
         <div class="messages__box-status">
           <span>AGUARDANDO</span>
         </div>
         <div class="messages__search">
           <img src="../images/lupa.svg" />
         </div>
-        <img class="messages__vertical" src="../images/vertical.svg"/>
-        <img class="messages__horizontal" src="../images/group-vertical.svg" />
+        <img
+          class="messages__vertical"
+          src="../images/vertical.svg"
+          @click="showMenu()"
+        />
+        <img
+          class="messages__horizontal"
+          src="../images/group-vertical.svg"
+          @click="showMenu()"
+        />
       </div>
     </div>
 
@@ -189,9 +201,10 @@
 </template>
 
 <script setup lang="ts">
-import toogleScreen from '../store/toggleScreen';
-const { changeScreen } = toogleScreen()
+import toogleScreen from "../store/toggleScreen";
+const { changeScreen } = toogleScreen();
 
+function showMenu() {}
 </script>
 
 <style lang="scss" scoped>
@@ -202,6 +215,8 @@ const { changeScreen } = toogleScreen()
   background: #ffffff;
   box-shadow: 0px 0px 6.13636px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  container-type: inline-size;
+  container-name: top;
 
   &__top {
     display: flex;
@@ -211,6 +226,8 @@ const { changeScreen } = toogleScreen()
     border-radius: 10px 10px 0 0;
     padding-inline: 20px 20.75px;
     border-block-end: 1px solid #dedede;
+    // container-type: inline-size;
+    // container-name: top;
 
     @media (width <= 600px) {
       block-size: 78px;
@@ -229,10 +246,10 @@ const { changeScreen } = toogleScreen()
     line-height: 21px;
     color: #333333;
 
-    @media (width <= 600px) {
-      font-size: 12px;
-      line-height: 14px;
-    }
+    // @media (width <= 600px) {
+    //   font-size: 12px;
+    //   line-height: 14px;
+    // }
   }
 
   &__arrow {
@@ -240,9 +257,10 @@ const { changeScreen } = toogleScreen()
     margin-inline-end: 5px;
     display: none;
 
-    @media (width < 910px) {
-      display: inline-block;
-    }
+  @media (width < 1200px) {
+  display: inline-block;
+  } 
+
   }
 
   &__status-mobile {
@@ -257,20 +275,14 @@ const { changeScreen } = toogleScreen()
     color: #ffffff;
     margin-block-start: 8px;
 
-    @media (width <= 600px) {
-      display: inline-block;
-    }
   }
 
   &__menu-top {
     display: flex;
     justify-content: flex-end;
-    inline-size: 205px;
+    // inline-size: 205px;
     block-size: 27px;
-
-    @media (width <= 600px) {
-      inline-size: auto;
-    }
+    position: relative;
   }
 
   &__box-status {
@@ -287,9 +299,9 @@ const { changeScreen } = toogleScreen()
     color: #ffffff;
     padding-inline: 28px;
 
-    @media (width <= 600px) {
-      display: none;
-    }
+    // @media (width <= 600px) {
+    //   display: none;
+    // }
   }
 
   &__search {
@@ -300,13 +312,14 @@ const { changeScreen } = toogleScreen()
     background: #aab9c3;
     margin-inline-start: 18px;
 
-    @media (width <= 600px) {
-      display: none;
-    }
+    // @media (width <= 600px) {
+    //   display: none;
+    // }
   }
 
   &__vertical {
     margin-inline-start: 13.75px;
+    cursor: pointer;
 
     @media (width > 1340px) {
       display: none;
@@ -315,16 +328,25 @@ const { changeScreen } = toogleScreen()
     @media (width <= 600px) {
       display: none;
     }
-
   }
-  
-  
+
   &__horizontal {
     display: none;
     inline-size: 20px;
     cursor: pointer;
 
     @media (width <= 600px) {
+      display: block;
+    }
+  }
+
+  &__menu-invisible {
+    position: absolute;
+    inset-inline-end: 30px;
+    inset-block-end: 734px;
+    display: none;
+
+    @media (width < 1340px) {
       display: block;
     }
   }
@@ -455,4 +477,39 @@ const { changeScreen } = toogleScreen()
     border-radius: 2px;
   }
 }
+
+
+@container top (max-width: 601px) {
+  .messages {
+    &__name {
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    &__box-status {
+      display: none;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__status-mobile {
+    display: inline-block;
+    }
+
+    &__bottom {
+      block-size: 73px;
+      align-items: center;
+      padding-block-start: 0;
+      padding-inline: 16px;
+
+    }
+  }
+}
 </style>
+
+<!-- 
+&__bottom {
+  display: none;
+} -->
