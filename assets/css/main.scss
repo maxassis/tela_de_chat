@@ -107,10 +107,14 @@
   outline: none;
   font-size: 12px;
 
-  &:focus {
-    border: 1px solid #DEDEDE;
-    border-color: #1fbd89;
+  &:not(:placeholder-shown)  {
+    border-color: #1fbd89 !important;
   }
 
+}
 
+.border-green {
+  border-color: #1fbd89 !important;
+  color: #333333 !important;
+  
 }

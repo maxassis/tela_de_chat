@@ -1,4 +1,5 @@
 <template>
+  {{ showInput }}
   <div class="message-search">
     <div class="message-search__input-wrapper">
       <div class="message-search__icon">
@@ -8,33 +9,44 @@
     </div>
     <img src="../images/add.svg" />
   </div>
-
   <div class="inputs-section">
-    <input type="text" placeholder="nome" />
-    <input type="text" placeholder="Número do whatsapp" />
-    <select>
-      <option selected style="color: pink">Usuário ou departamento</option>
-      <option>Financeiro</option>
+    <input class="input" type="text" placeholder="Nome" />
+    <input class="input" type="text" placeholder="Número do whatsapp" />
+    <select v-model="departamento" :class="[departamento != '' ? 'border-green' : '']">
+      <option selected style="color: pink" value="">Usuário ou departamento</option>
+      <option value="1">Financeiro</option>
+      <option value="2">Comercial</option>
     </select>
-    <select>
-      <option>Filtrar por etapa do funil</option>
+    <select v-model="funil" :class="[funil != '' ? 'border-green' : '']">
+      <option value="">Filtrar por etapa do funil</option>
+      <option value="1">Etapa 1</option>
+      <option value="2">Etapa 2</option>
     </select>
 
     <div class="inputs-section__group1">
-      <select>
-        <option>Filtrar por tags</option>
+      <select v-model="tags" :class="[tags != '' ? 'border-green' : '']">
+        <option value="">Filtrar por tags</option>
+        <option value="1">Tag 1</option>
+        <option value="2">Tag 2</option>
       </select>
-      <select style="inline-size: 106px">
-        <option>Qualquer</option>
+      <select v-model="qualquer" :class="[qualquer != '' ? 'border-green' : '']" style="inline-size: 106px">
+        <option value="">Qualquer</option>
+        <option value=1>Todas as tags</option>
       </select>
     </div>
 
     <div class="inputs-section__group2">
       <div>
-        <span>Mostrar tags</span>
+        <span :style="showInput ? 'color: #333333' : 'color: gray'">Mostrar tags</span>
+        <div class="toggle-switch">
+          <input v-model="showInput" value="1" class="toggle-input" id="toggle" type="checkbox">
+          <label class="toggle-label" for="toggle"></label>
+        </div>
       </div>
-      <select>
-        <option>Ordenar por</option>
+      <select v-model="order" :class="[order != '' ? 'border-green' : '']">
+        <option value="">Ordenar por</option>
+        <option value="1">Mais novo</option>
+        <option value="2">Data de criação</option>
       </select>
     </div>
   </div>
@@ -58,11 +70,11 @@
     </div>
   </div>
 
-  <div :class="['list', {'up': hide}]">
+  <div :class="['list', { 'up': hide }]">
     <div class="list__top-bar">
       <div class="list__hidden-list" @click="toggleHide">
         <img src="../images/up.svg" />
-        <span>{{hide ? 'Mostrar filtros' : 'Esconder filtros'}}</span>
+        <span>{{ hide ? 'Mostrar filtros' : 'Esconder filtros' }}</span>
       </div>
       <span class="list__clean">Limpar</span>
     </div>
@@ -72,14 +84,20 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue"
+import { ref } from "vue"
 
 let hide = ref<boolean>(false)
+
+let departamento = ref<string>('')
+let funil = ref<string>('')
+let tags = ref<string>('')
+let qualquer = ref<string>('')
+let order = ref<string>('')
+let showInput = ref<boolean>(false)
 
 function toggleHide(): void {
   hide.value = hide.value ? false : true;
 }
-
 
 </script>
 
@@ -97,13 +115,13 @@ function toggleHide(): void {
   inline-size: 100%;
   block-size: 3.938rem;
   background: #f7f7f8;
-  border-bottom: 1px solid #dedede;
+  border-block-end: 1px solid #dedede;
 
   &__input-wrapper {
     inline-size: 238px;
     display: flex;
 
-    > input {
+    >input {
       inline-size: 100%;
       block-size: 2rem;
       outline: none;
@@ -128,7 +146,7 @@ function toggleHide(): void {
   padding: 16px;
   border-bottom: 1px solid #dedede;
 
-  > input,
+  >input,
   select {
     inline-size: 100%;
     block-size: 32px;
@@ -140,7 +158,7 @@ function toggleHide(): void {
     font-size: 12px;
   }
 
-  > select {
+  >select {
     color: gray;
   }
 
@@ -149,7 +167,7 @@ function toggleHide(): void {
     block-size: 32px;
     gap: 8px;
 
-    > select {
+    >select {
       color: gray;
     }
   }
@@ -160,7 +178,7 @@ function toggleHide(): void {
     block-size: 32px;
     color: gray;
 
-    > div {
+    >div {
       display: flex;
       align-items: center;
       min-inline-size: 142px;
@@ -169,7 +187,7 @@ function toggleHide(): void {
       border-radius: 2px;
       padding-inline-start: 10px;
 
-      > span {
+      >span {
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
@@ -177,7 +195,7 @@ function toggleHide(): void {
       }
     }
 
-    > select {
+    >select {
       color: gray;
     }
   }
@@ -226,13 +244,13 @@ function toggleHide(): void {
 
         &::after {
           content: "";
-          width: 10px;
-          height: 5px;
-          border-right: 2.5px solid white;
-          border-top: 2.5px solid white;
+          inline-size: 10px;
+          block-size: 5px;
+          border-inline-end: 2.5px solid white;
+          border-block-start: 2.5px solid white;
           position: absolute;
-          left: 2.5px;
-          top: 4px;
+          inset-inline-start: 2.5px;
+          inset-block-start: 4px;
           transform: rotate(130deg);
         }
       }
@@ -243,7 +261,7 @@ function toggleHide(): void {
 .list {
   block-size: calc(100dvh - 436px);
   transition: transform 0.5s linear;
-  
+
   &__top-bar {
     display: flex;
     align-items: center;
@@ -279,6 +297,12 @@ function toggleHide(): void {
     text-decoration-line: underline;
     color: #BAB8B9;
     cursor: pointer;
+
+    &:hover {
+      color: #1fbd89;
+    }
+
+
   }
 
 
@@ -286,6 +310,84 @@ function toggleHide(): void {
 
 .up {
   transform: translateY(-383px);
+}
+
+// Toggle button
+
+/* Genel stil */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 27.857px;
+  height: 15px;
+  margin: 10px;
+}
+
+/* Giriş stil */
+.toggle-switch .toggle-input {
+  display: none;
+}
+
+/* Anahtarın stilinin etrafındaki etiketin stil */
+.toggle-switch .toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 27.857px;
+  height: 15px;
+  background-color: #1FBD89;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Anahtarın yuvarlak kısmının stil */
+.toggle-switch .toggle-label::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 1.22px;
+  left: 1.2px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+/* Anahtarın etkin hale gelmesindeki stil değişiklikleri */
+.toggle-switch .toggle-input:checked + .toggle-label {
+  background-color: #1FBD89;
+}
+
+.toggle-switch .toggle-input:checked + .toggle-label::before {
+  transform: translateX(13px);
+}
+
+/* Light tema */
+.toggle-switch.light .toggle-label {
+  background-color: #1FBD89;
+}
+
+.toggle-switch.light .toggle-input:checked + .toggle-label {
+  background-color: #1FBD89;
+}
+
+.toggle-switch.light .toggle-input:checked + .toggle-label::before {
+  transform: translateX(6px);
+}
+
+/* Dark tema */
+.toggle-switch.dark .toggle-label {
+  background-color: #1FBD89;
+}
+
+.toggle-switch.dark .toggle-input:checked + .toggle-label {
+  background-color: #1FBD89;
+}
+
+.toggle-switch.dark .toggle-input:checked + .toggle-label::before {
+  transform: translateX(16px);
 }
 
 </style>

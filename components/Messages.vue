@@ -9,7 +9,7 @@
         />
         <img src="../images/user1.png" />
         <div>
-          <h3>Ricardo Sá - Nome da empresa</h3>
+          <h3>Vanderlei Silva</h3>
           <span class="messages__status-mobile">AGUARDANDO</span>
         </div>
       </div>
@@ -203,8 +203,11 @@
 <script setup lang="ts">
 import toogleScreen from "../store/toggleScreen";
 const { changeScreen } = toogleScreen();
+const {showMenu} = defineProps<{showMenu: Function}>()
 
-function showMenu() {}
+
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -216,7 +219,7 @@ function showMenu() {}
   box-shadow: 0px 0px 6.13636px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   container-type: inline-size;
-  container-name: top;
+  container-name: messages;
 
   &__top {
     display: flex;
@@ -226,8 +229,6 @@ function showMenu() {}
     border-radius: 10px 10px 0 0;
     padding-inline: 20px 20.75px;
     border-block-end: 1px solid #dedede;
-    // container-type: inline-size;
-    // container-name: top;
 
     @media (width <= 600px) {
       block-size: 78px;
@@ -246,10 +247,6 @@ function showMenu() {}
     line-height: 21px;
     color: #333333;
 
-    // @media (width <= 600px) {
-    //   font-size: 12px;
-    //   line-height: 14px;
-    // }
   }
 
   &__arrow {
@@ -280,7 +277,6 @@ function showMenu() {}
   &__menu-top {
     display: flex;
     justify-content: flex-end;
-    // inline-size: 205px;
     block-size: 27px;
     position: relative;
   }
@@ -298,10 +294,6 @@ function showMenu() {}
     letter-spacing: 0.05em;
     color: #ffffff;
     padding-inline: 28px;
-
-    // @media (width <= 600px) {
-    //   display: none;
-    // }
   }
 
   &__search {
@@ -311,33 +303,17 @@ function showMenu() {}
     block-size: 30px;
     background: #aab9c3;
     margin-inline-start: 18px;
-
-    // @media (width <= 600px) {
-    //   display: none;
-    // }
   }
 
   &__vertical {
     margin-inline-start: 13.75px;
     cursor: pointer;
-
-    @media (width > 1340px) {
-      display: none;
-    }
-
-    @media (width <= 600px) {
-      display: none;
-    }
   }
 
   &__horizontal {
     display: none;
     inline-size: 20px;
     cursor: pointer;
-
-    @media (width <= 600px) {
-      display: block;
-    }
   }
 
   &__menu-invisible {
@@ -355,7 +331,7 @@ function showMenu() {}
     background-color: #f8f9fc;
     border-block-end: 1px solid #dedede;
     padding-inline: 24px;
-    overflow: scroll;
+    overflow-x: hidden;
   }
 
   &__date {
@@ -479,7 +455,7 @@ function showMenu() {}
 }
 
 
-@container top (max-width: 601px) {
+@container messages (max-width: 601px) {
   .messages {
     &__name {
       font-size: 12px;
@@ -505,11 +481,16 @@ function showMenu() {}
       padding-inline: 16px;
 
     }
+
+    &__vertical {
+      display: none;
+    }
+
+    &__horizontal {
+      display: block;
+    }
+
   }
 }
 </style>
 
-<!-- 
-&__bottom {
-  display: none;
-} -->

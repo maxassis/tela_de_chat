@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div :class="['external-container',  {'menu--open': option !== ''}, {'chalist--open': chatlist }, {'messages--open' : messages }]" >
+    <div :class="['external-container',  {'menu--open': option !== ''}, {'chalist--open': chatlist }, {'messages--open' : messages && !menu}, {'menu-mobile--open': menu}]" >
       <Header />
       <div class="chat-list">
         <ChatsList/>
       </div>
       <div class="messages" >
-        <Messages />
+        <Messages :showMenu="showMenu"/>
       </div>
       <div class="options">
         <Options />
@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import {option} from '@/store/options';
 import {chatlist, messages} from '@/store/toggleScreen';
-// import { ref } from 'vue';
+import { ref } from 'vue';
 
 useHead({
   link: [
@@ -37,13 +37,11 @@ useHead({
   ],
 });
 
-// let menu = ref(false);
-// function showMenu() {
-//   menu.value = true
-//   console.log(menu.value)
-// }
-
-
+let menu = ref(false);
+function showMenu() {
+  menu.value = true
+  console.log(menu.value)
+}
 
 </script>
 
@@ -108,11 +106,15 @@ useHead({
 }
 
 .menu--open {
- // grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
- grid-template-columns: 19.813rem 1fr 19.813rem 3.875rem;
-  padding-inline: 0;
-  margin: 0;
+  //grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
+   grid-template-columns: 19.813rem 1fr 19.813rem 3.875rem;
+  // padding-inline: 0;
+  // margin: 0;
 
+}
+
+.menu-mobile--open {
+  grid-template-columns: 0 1fr auto 0 !important;
 }
 
 .messages--open {
