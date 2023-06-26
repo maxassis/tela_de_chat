@@ -186,7 +186,23 @@
 
     <div class="messages__bottom">
       <div class="messages__send-msg-bottom">
-        <img src="../images/plus.svg" />
+        <div class="messages__plus" ref="target">
+          <div :class="['messages__menu',{'messages__menu-item--show': plusMenu}]" >
+            <div class="messages__menu-item">
+              <img src="../images/plus1.svg" />
+            </div>
+            <div class="messages__menu-item" style="--color:#36B9CC">
+              <img src="../images/plus2.svg" />
+            </div>
+            <div class="messages__menu-item" style="--color:#4E73DF">
+              <img src="../images/plus3.svg" />
+            </div>
+            <div class="messages__menu-item" style="--color:#1FBD89">
+              <img src="../images/plus4.svg" />
+            </div>
+          </div>
+          <img src="../images/plus.svg" @click="teste()"/>
+        </div>
         <div class="messages__input-wrapper">
           <textarea type="text" />
         </div>
@@ -199,9 +215,26 @@
 </template>
 
 <script setup lang="ts">
-import toogleScreen from "../store/toggleScreen";
-// const { changeScreen } = toogleScreen();
-// const {showMenu} = defineProps<{showMenu: ()=>void}>()
+import { onClickOutside } from '@vueuse/core'
+let plusMenu = ref(false);
+const target = ref(null)
+
+onClickOutside(target, () => {
+  if(plusMenu.value){
+    plusMenu.value = false
+  }
+})
+
+function teste() {
+  if(plusMenu.value){
+    plusMenu.value = false
+  }
+  else {
+    plusMenu.value = true
+  }
+
+}
+
 
 </script>
 
@@ -382,6 +415,43 @@ import toogleScreen from "../store/toggleScreen";
     block-size: 49px;
   }
 
+  &__plus {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    inline-size: 52px;
+    block-size: 172px;
+    border-radius: 2px;
+    border: 0.5px solid var(--cinza-30, #CECECE);
+    background: var(--branco, #FFF);
+    box-shadow: 0px 0px 6.136363506317139px 0px rgba(0, 0, 0, 0.10);
+    position: absolute;
+    inset-block-start: -181px;
+    inset-inline-end: -9.5px;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+
+  &__menu-item {
+    --color: #8995B2;
+    display: grid;
+    place-items: center;
+    inline-size: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--color);
+    margin: auto;
+  }
+
+  &__menu-item--show {
+    opacity: 1;
+  }
+
   &__msg-wrapper {
     max-inline-size: 432px;
     inline-size: 100%;
@@ -446,6 +516,7 @@ import toogleScreen from "../store/toggleScreen";
     block-size: 49px;
     background: #1fbd89;
     border-radius: 2px;
+    cursor: pointer;
   }
 }
 

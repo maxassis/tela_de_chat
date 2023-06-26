@@ -14,43 +14,53 @@
       <div class="header__divisor"></div>
       <img src="../images/sino.svg" />
       <div class="header__divisor header--hide"></div>
-      <img src="../images/volume.svg" class="header--hide"/>
+      <img src="../images/volume.svg" class="header--hide" />
       <div class="header__divisor header--hide"></div>
-      <img src="../images/toggle.svg" style="inline-size: 43px" class="header--hide" />
+      <img
+        src="../images/toggle.svg"
+        style="inline-size: 43px"
+        class="header--hide"
+      />
       <div class="header__divisor header--hide"></div>
-      <img src="../images/logout.svg" class="header--hide"/>
-      <img src="../images/vertical-white.svg" class="header__menu-mobile" @click="togglePopup" />
-    </div>
-    <div :class="['header__popup', {'header__popup--show' : showPopup }]">
-      <div class="header__popup-item">
-        <span>Volume</span>
-        <img src="../images/volume.svg" />
+      <img src="../images/logout.svg" class="header--hide" />
+      <div ref="target">
+        <img
+          src="../images/vertical-white.svg"
+          class="header__menu-mobile"
+          @click="togglePopup"
+          style="position: relative"
+        />
+        <div :class="['header__popup', { 'header__popup--show': showPopup }]">
+          <div class="header__popup-item">
+            <span>Volume</span>
+            <img src="../images/volume.svg" />
+          </div>
+          <div class="header__popup-item">
+            <span>Tema</span>
+            <img src="../images/toggle.svg" />
+          </div>
+          <div class="header__popup-item">
+            <span>Sair</span>
+            <img src="../images/logout.svg" />
+          </div>
+        </div>
       </div>
-      <div class="header__popup-item">
-        <span>Tema</span>
-        <img src="../images/toggle.svg" />
-      </div>
-      <div class="header__popup-item">
-        <span>Sair</span>
-        <img src="../images/logout.svg" />
-      </div>
-
-
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
 let showPopup = ref(false);
-
 function togglePopup() {
   showPopup.value = !showPopup.value;
 }
 
+const target = ref(null);
+onClickOutside(target, () => (showPopup.value = false));
 </script>
-
 
 <style scoped lang="scss">
 .header {
@@ -62,7 +72,6 @@ function togglePopup() {
   background: #333333;
   padding: 0 1.188rem 0 1rem;
   position: relative;
-
 
   &__user-wrapper {
     display: flex;
@@ -134,7 +143,6 @@ function togglePopup() {
     @media (width < 600px) {
       display: none;
     }
-
   }
 
   &__popup {
@@ -142,10 +150,11 @@ function togglePopup() {
     inset-inline-end: 15px;
     inset-block-end: -120px;
     inline-size: 160px;
-    block-size:108px;border-radius: 2px;
-    border: 0.5px solid var(--cinza-30, #CECECE);
-    background: var(--branco, #FFF);
-    box-shadow: 0px 0px 6.136363506317139px 0px rgba(0, 0, 0, 0.10);
+    block-size: 108px;
+    border-radius: 2px;
+    border: 0.5px solid var(--cinza-30, #cecece);
+    background: var(--branco, #fff);
+    box-shadow: 0px 0px 6.136363506317139px 0px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-rows: 38px 31px 39px;
     grid-template-columns: 1fr;
@@ -156,7 +165,6 @@ function togglePopup() {
     transition: opacity 0.7s ease;
     z-index: 999999;
   }
-
 
   &__menu-mobile {
     display: none;
@@ -172,14 +180,15 @@ function togglePopup() {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-block-end: 1px solid #DEDEDE;
+    border-block-end: 1px solid #dedede;
+    cursor: pointer;
 
-    >span {
-      color: #BAB8B9;
+    > span {
+      color: #bab8b9;
       font-size: 16px;
     }
 
-    >img {
+    > img {
       cursor: pointer;
     }
   }
