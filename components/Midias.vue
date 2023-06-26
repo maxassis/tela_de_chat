@@ -3,7 +3,7 @@
     <div class="midia__title">
       <span>Midias</span>
       <div class="midia__icon">
-        <img src="../images/x.svg" />
+        <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer" />
       </div>
     </div>
     <div class="midia__search-wrapper">
@@ -170,6 +170,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import options from '../store/options';
+const { changeOption } = options()
 
 let opt = ref("");
 
@@ -178,6 +180,8 @@ function check(type: string) {
   console.log(opt.value);
 }
 </script>
+
+
 
 <style lang="scss" scoped>
 .midia {
@@ -210,6 +214,7 @@ function check(type: string) {
   }
 
   &__search-wrapper {
+    inline-size: 279px;
     block-size: 30px;
     display: flex;
     align-items: center;

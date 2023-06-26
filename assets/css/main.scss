@@ -12,11 +12,12 @@
   
   /* Only show focus outline when the user is tabbing (not when clicking) */
   *:focus {
-    outline: none;
+    //outline: none;
+    outline-color: #1fbd89;
   }
   
   *:focus-visible {
-    outline: 1px solid blue;
+    outline: 1px solid #1fbd89;
   }
   
   /* Prevent mobile browsers increasing font-size */
@@ -104,7 +105,7 @@
   background: #FFFFFF;
   border: 1px solid #DEDEDE;
   border-radius: 2px;
-  outline: none;
+  outline-color: #1fbd89;
   font-size: 12px;
 
   &:not(:placeholder-shown)  {

@@ -3,7 +3,7 @@
     <div class="delegated__title">
       <span>Histórico de usuários delegados</span>
       <div class="delegated__icon">
-        <img src="../images/x.svg" />
+        <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer" />
       </div>
     </div>
 
@@ -118,12 +118,19 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
+
+</script>
+
 <style lang="scss" scoped>
 .delegated {
   padding: 16px 20px 0 20px;
 
   &__title {
     display: flex;
+    inline-size: 279px;
     block-size: 31px;
     justify-content: space-between;
     align-items: center;
@@ -148,6 +155,7 @@
   }
 
   &__search-wrapper {
+    inline-size: 279px;
     block-size: 30px;
     display: flex;
     align-items: center;

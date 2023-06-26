@@ -10,7 +10,7 @@
             <img src="../images/link.svg" />
           </div>
           <div class="user__icons">
-            <img src="../images/x.svg" />
+            <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer" />
           </div>
         </div>
       </div>
@@ -82,26 +82,28 @@
 
       <div class="fields__inputs-wrapper">
         <span>Nome da empresa</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder="" />
         <span>CNPJ:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>E-mail: </span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>Data de cadastro:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>Dados da conta:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>Aparelho de origem:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>Aparelho de origem:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
         <span>Número do ZapGuru:</span>
-        <input class="input" type="text" />
+        <input class="input" type="text" placeholder=""/>
       </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
 
 </script>
 
@@ -131,8 +133,8 @@
     display: grid;
     place-items: center;
     gap: 10px;
-    width: 24px;
-    height: 24px;
+    inline-size: 24px;
+    block-size: 24px;
     background: #ffffff;
     border: 1px solid rgba(92, 92, 92, 0.04);
     border-radius: 12px;
@@ -183,6 +185,17 @@
     align-items: center;
     color: #cecece;
     padding-inline: 10px;
+    
+
+    input {
+      //appearance: none;
+      inline-size: 14px;
+      block-size: 14px;
+      border: 1px solid #CECECE;
+      accent-color: #1fbd89;
+    }
+
+
   }
 
   &__resp-wrapper {

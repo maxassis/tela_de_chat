@@ -160,7 +160,7 @@ function toggleHide(): void {
     > input {
       inline-size: 100%;
       block-size: 2rem;
-      outline: none;
+      //outline: none;
       padding-inline-start: 10px;
       font-size: 12px;
     }
@@ -186,7 +186,7 @@ function toggleHide(): void {
   select {
     inline-size: 100%;
     block-size: 32px;
-    outline: none;
+   // outline: none;
     background: #ffffff;
     border: 1px solid #dedede;
     border-radius: 2px;

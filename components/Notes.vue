@@ -3,7 +3,7 @@
         <div class="notes__title-wrapper">
             <span>Anotações internas</span>
             <div>
-                <img src="../images/x.svg" />
+                <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer" />
             </div>
         </div>
 
@@ -69,6 +69,14 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
+
+</script>
+
+
 
 <style lang="scss" scoped>
 .notes {

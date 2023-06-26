@@ -3,7 +3,7 @@
         <div class="funnels__title">
             <span>Funil</span>
             <div class="funnels__icon">
-                <img src="../images/x.svg" />
+                <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer;" />
             </div>
         </div>
 
@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
 
-function toggle() {
-    alert('teste')
-}
+
 
 </script>
 

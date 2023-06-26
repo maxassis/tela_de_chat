@@ -3,7 +3,7 @@
     <div class="nps__title">
       <span>Histórico de NPS</span>
       <div class="nps__icon">
-        <img src="../images/x.svg" />
+        <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer;" />
       </div>
     </div>
 
@@ -26,6 +26,12 @@
 
   </div>
 </template>
+
+<script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
+
+</script>
 
 <style lang="scss" scoped>
 .nps {
@@ -59,6 +65,7 @@
   }
 
   &__search-wrapper {
+    inline-size: 279px;
     block-size: 30px;
     display: flex;
     align-items: center;

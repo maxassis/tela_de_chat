@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div :class="['external-container',  {'menu--open': option !== ''}, {'chalist--open': chatlist }, {'messages--open' : messages && !menu}, {'menu-mobile--open': menu}]" >
+    <div :class="['external-container',  {'menu--open': closeOption}, {'chalist--open': chatlist }, {'messages--open' : messages && !menu}, {'menu-mobile--open': menu}]" >
       <Header />
       <div class="chat-list">
         <ChatsList/>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import {option} from '@/store/options';
+import options from '@/store/options';
 import {chatlist, messages} from '@/store/toggleScreen';
 import { ref } from 'vue';
 
@@ -36,6 +36,8 @@ useHead({
     },
   ],
 });
+
+const { closeOption } = options();
 
 let menu = ref(false);
 function showMenu() {

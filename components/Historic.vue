@@ -3,7 +3,7 @@
         <div class="historic__title">
             <span>Histórico de atendimento</span>
             <div class="historic__close">
-                <img src="../images/x.svg" />
+                <img src="../images/x.svg" @click="changeOption('')" style="cursor: pointer" />
             </div>
         </div>
         
@@ -154,12 +154,20 @@
 
 </template>
 
+<script setup lang="ts">
+import options from '../store/options';
+const { changeOption } = options()
+
+
+</script>
+
 <style lang="scss" scoped>
 
 .historic {
     padding: 16px 20px 0 20px;
 
     &__title {
+        inline-size: 279px;
         block-size: 31px;
         display: flex;
         justify-content: space-between;
@@ -189,6 +197,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        inline-size: 279px;
         block-size: 30px;
         margin-block-end: 12px;
     }

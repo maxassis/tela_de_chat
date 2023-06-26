@@ -24,12 +24,10 @@
         <img
           class="messages__vertical"
           src="../images/vertical.svg"
-          @click="showMenu()"
         />
         <img
           class="messages__horizontal"
           src="../images/group-vertical.svg"
-          @click="showMenu()"
         />
       </div>
     </div>
@@ -202,11 +200,8 @@
 
 <script setup lang="ts">
 import toogleScreen from "../store/toggleScreen";
-const { changeScreen } = toogleScreen();
-const {showMenu} = defineProps<{showMenu: Function}>()
-
-
-
+// const { changeScreen } = toogleScreen();
+// const {showMenu} = defineProps<{showMenu: ()=>void}>()
 
 </script>
 

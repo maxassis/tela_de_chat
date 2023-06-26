@@ -7,14 +7,18 @@
       <Historic v-else-if="option === 'historic'" />
       <Delegated v-else-if="option === 'delegated'" />
       <Nps v-else-if="option === 'nps'" />
-      <Midias v-else="option === 'midias'" />
+      <Midias v-else-if="option === 'midias'" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import options from '../store/options';
 
-const { option } = options()
+const { option } = options();
+
+console.log(option.value)
+
+
 
 </script>
 
