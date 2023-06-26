@@ -68,25 +68,25 @@
   </div>
 
   <div class="checks__wrapper">
-    <div :class="['checks__single-item', inputSelected.includes('archive') ? 'item--selected' : '']">
+    <div :class="['checks__single-item', inputSelected.includes('archive') ? 'item--selected' : '']" aria-label="Arquivados" data-balloon-pos="up">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
           <path stroke="#DEDEDE" stroke-linecap="round" stroke-linejoin="round" d="M12.25 4.667v7.583H1.75V4.667M13.417 1.75H.583v2.917h12.834V1.75ZM5.833 7h2.334"/>
       </svg>
       <input v-model="inputSelected" type="checkbox" value="archive" />
     </div>
-    <div :class="['checks__single-item', inputSelected.includes('mail') ? 'item--selected2' : '']">
+    <div :class="['checks__single-item', inputSelected.includes('mail') ? 'item--selected2' : '']" aria-label="Chats não lidos" data-balloon-pos="up">
       <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none">
           <path fill="#DEDEDE" d="M16.15 4.675a3.825 3.825 0 1 1-7.65 0 3.825 3.825 0 0 1 7.65 0ZM13.901 3.7a.426.426 0 0 0-.602-.602l-.974.975-.974-.975a.425.425 0 1 0-.602.602l.975.974-.975.974a.426.426 0 0 0 .602.602l.974-.975.974.975a.425.425 0 1 0 .602-.602l-.975-.974.975-.974Zm.55 8.624V8.84a4.68 4.68 0 0 0 .85-.559v4.044a2.125 2.125 0 0 1-2.126 2.125h-9.35A2.125 2.125 0 0 1 1.7 12.325v-6.8A2.125 2.125 0 0 1 3.825 3.4h4.001a4.657 4.657 0 0 0-.157.85H3.825A1.275 1.275 0 0 0 2.55 5.525v.257l5.95 3.5 1.225-.721c.276.184.573.34.887.465l-1.896 1.115a.426.426 0 0 1-.362.033l-.07-.033L2.55 6.768v5.557A1.275 1.275 0 0 0 3.825 13.6h9.35a1.275 1.275 0 0 0 1.275-1.275Z"/>
       </svg>
       <input v-model="inputSelected" type="checkbox" value="mail"  />
     </div>
-    <div :class="['checks__single-item', inputSelected.includes('star') ? 'item--selected' : '']" >
+    <div :class="['checks__single-item', inputSelected.includes('star') ? 'item--selected' : '']" aria-label="Favoritos" data-balloon-pos="up">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
         <path stroke="#DEDEDE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.167" d="m7 1.167 1.802 3.651 4.031.59-2.916 2.84.688 4.014L7 10.366l-3.605 1.896.688-4.014-2.916-2.84 4.03-.59L7 1.167Z"/>
       </svg>
       <input v-model="inputSelected" type="checkbox" value="star" />
     </div>
-    <div :class="['checks__single-item', inputSelected.includes('transmission') ? 'item--selected2' : '']">
+    <div :class="['checks__single-item', inputSelected.includes('transmission') ? 'item--selected2' : '']" data-balloon-length="small" aria-label="Lista de transmissão" data-balloon-pos="up-left">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
           <path fill="#DEDEDE" fill-rule="evenodd" d="M2.998 5.58a5.55 5.55 0 0 1 1.62-3.88l-.71-.7a6.45 6.45 0 0 0 0 9.16l.71-.7a5.55 5.55 0 0 1-1.62-3.88Zm1.06 0a4.42 4.42 0 0 0 1.32 3.17l.71-.71a3.27 3.27 0 0 1-.76-1.12 3.45 3.45 0 0 1 0-2.67 3.22 3.22 0 0 1 .76-1.13l-.71-.71a4.46 4.46 0 0 0-1.32 3.17Zm7.65 3.21-.71-.71c.33-.32.59-.704.76-1.13a3.448 3.448 0 0 0 0-2.67 3.219 3.219 0 0 0-.76-1.13l.71-.7a4.47 4.47 0 0 1 0 6.34ZM13.068 1l-.71.71a5.43 5.43 0 0 1 0 7.74l.71.71a6.451 6.451 0 0 0 0-9.16ZM9.993 5.43a1.5 1.5 0 0 1-.245.98 2 2 0 0 1-.27.23l3.44 7.73-.92.4-.77-1.73h-5.54l-.77 1.73-.92-.4 3.44-7.73a1.52 1.52 0 0 1-.33-1.63 1.55 1.55 0 0 1 .56-.68 1.5 1.5 0 0 1 2.325 1.1Zm-1.595-.34a.52.52 0 0 0-.25.14.52.52 0 0 0-.11.22.48.48 0 0 0 0 .29c.04.09.102.17.18.23a.54.54 0 0 0 .28.08.51.51 0 0 0 .5-.5.54.54 0 0 0-.08-.28.58.58 0 0 0-.23-.18.48.48 0 0 0-.29 0Zm.23 2.05h-.27l-.87 1.94h2l-.86-1.94Zm2.2 4.94-.89-2h-2.88l-.89 2h4.66Z" clip-rule="evenodd"/>
       </svg>

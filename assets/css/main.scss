@@ -12,7 +12,6 @@
   
   /* Only show focus outline when the user is tabbing (not when clicking) */
   *:focus {
-    //outline: none;
     outline-color: #1fbd89;
   }
   
@@ -30,7 +29,7 @@
   /* Allow percentage-based heights */
   /* Setting width: 100% isn't required because it is a default for block-level elements (html & body are block level) */
   html, body {
-    height: 100%;
+    block-size: 100%;
   }
   
   body {
@@ -95,7 +94,6 @@
   
   *{
     box-sizing: border-box;
-    //background: rgb(0 100 0 / 0.1) !important;
   }
 }
 

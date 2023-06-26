@@ -34,6 +34,10 @@ useHead({
       href: 'href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap',
       crossorigin: "",
     },
+    {
+      rel: "stylesheet",
+      href: "https://unpkg.com/balloon-css/balloon.min.css",
+    }
   ],
 });
 
@@ -57,7 +61,6 @@ function showMenu() {
   block-size: 100dvh;
   border: 1px solid#DEDEDE;
   border-block-start: 0;
-  overflow: hidden;
   transition: grid-template-columns 0.5s linear;
 
   @media (width <= 1440px) {
@@ -82,15 +85,12 @@ function showMenu() {
 .chat-list {
   grid-column: 1/2;
   grid-row: 2 / 3;
-  overflow: hidden;
-  overflow: hidden;
-
 }
 
 .messages {
   grid-column: 2/3;
   grid-row: 2 / 3;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .options {
@@ -103,7 +103,7 @@ function showMenu() {
 .menu {
   grid-column: 4/5;
   grid-row: 2 / 3;
-  overflow: hidden;
+ // overflow: hidden;
   
 }
 

@@ -2,31 +2,31 @@
     <div class="menu" > 
 
         <div class="menu__itens-wrapper">
-        <div class="menu__item" >
-            <img src="../images/user.svg" @click="changeOption('user')"/>
+        <div class="menu__item" @click="changeOption('user')" aria-label="Informações do chat" data-balloon-pos="left" >
+            <img src="../images/user.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('notes')">
+        <div class="menu__item" @click="changeOption('notes')" aria-label="Anotações internas" data-balloon-pos="left">
             <img src="../images/file.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('funnels')">
+        <div class="menu__item" @click="changeOption('funnels')" aria-label="Funil" data-balloon-pos="left">
             <img src="../images/funil.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('chatbot')">
+        <div class="menu__item" @click="changeOption('chatbot')" aria-label="Diálogos do chatbot" data-balloon-pos="left">
             <img src="../images/robot.svg"  />
         </div>
-        <div class="menu__item" @click="changeOption('historic')">
+        <div class="menu__item" @click="changeOption('historic')" aria-label="Histórico de atendimento" data-balloon-pos="left">
             <img src="../images/graph.svg"/>
         </div>
-        <div class="menu__item" @click="changeOption('delegated')">
+        <div class="menu__item" @click="changeOption('delegated')" aria-label="Histórico de usuários delegados" data-balloon-pos="left">
             <img src="../images/user-check.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('nps')">
+        <div class="menu__item" @click="changeOption('nps')" aria-label="Histórico de NPS" data-balloon-pos="left">
             <img src="../images/pie.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('midias')">
+        <div class="menu__item" @click="changeOption('midias')" aria-label="Midias" data-balloon-pos="left">
             <img src="../images/play.svg" />
         </div>
-        <div class="menu__item" @click="changeOption('')">
+        <div class="menu__item" @click="changeOption('')" aria-label="Fechar" data-balloon-pos="left">
             <img src="../images/close.svg" />
         </div>
         </div>
