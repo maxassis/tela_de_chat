@@ -3,7 +3,7 @@
         <div class="chatbot__title">
             <span>Diálogos do chatbot</span>
             <div class="chatbot__icon">
-                <img src="/../images/x.svg" alt="" @click="changeOption('')" style="cursor: pointer">
+                <img src="@/images/x.svg" alt="" @click="changeOption('')" style="cursor: pointer">
             </div>
         </div>
         <div class="chatbot__context-wrapper">

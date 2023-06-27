@@ -4,7 +4,7 @@
         <span>Informações do chat</span>
         <div class="user__icons-wrapper">
           <div class="user__icons">
-            <img src="../images/star2 .svg" />
+            <img src="../images/estrela.svg" />
           </div>
           <div class="user__icons">
             <img src="../images/link.svg" />

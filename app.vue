@@ -39,7 +39,7 @@ useHead({
       href: "https://unpkg.com/balloon-css/balloon.min.css",
     }
   ],
-});
+})
 
 const { closeOption } = options();
 
@@ -57,7 +57,7 @@ function showMenu() {
   grid-template-rows: 3.313rem calc(100% - 3.313rem);
  // grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 0px 3.875rem;
   grid-template-columns: 19.813rem 1fr 0px 3.875rem;
-  inline-size: 100%;
+  width: 100%;
   block-size: 100dvh;
   border: 1px solid#DEDEDE;
   border-block-start: 0;
@@ -66,15 +66,10 @@ function showMenu() {
   @media (max-width: 1440px) {
     border: 0;
   }
-
-  // @media (width < 1340px) {
-  //   grid-template-columns: 19.813rem 1fr 0 0 !important;
-  // }
-
+ 
   @media (max-width: 1200px) {
     grid-template-columns: 1fr 0px 0 0 !important;
-  }
-    
+  }    
 }
 
 .header {
@@ -113,11 +108,7 @@ function showMenu() {
 }
 
 .menu--open {
-  //grid-template-columns: 19.813rem minmax(39.375rem, 66.313rem) 19.813rem 3.875rem;
    grid-template-columns: 19.813rem 1fr 19.813rem 3.875rem;
-  // padding-inline: 0;
-  // margin: 0;
-
 }
 
 .menu-mobile--open {
