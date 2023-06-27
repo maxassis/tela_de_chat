@@ -258,7 +258,7 @@ function teste() {
     padding-inline: 20px 20.75px;
     border-block-end: 1px solid #dedede;
 
-    @media (width <= 600px) {
+    @media (max-width: 600px) {
       block-size: 78px;
       padding-inline: 19.78px 17px;
     }
@@ -282,7 +282,7 @@ function teste() {
     margin-inline-end: 5px;
     display: none;
 
-  @media (width < 1200px) {
+  @media (max-width: 1200px) {
   display: inline-block;
   } 
 
@@ -350,7 +350,7 @@ function teste() {
     inset-block-end: 734px;
     display: none;
 
-    @media (width < 1340px) {
+    @media (max-width: 1340px) {
       display: block;
     }
   }

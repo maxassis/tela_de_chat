@@ -68,6 +68,10 @@ const { changeScreen } = toogleScreen()
     border-block-end: 1px solid #dedede;
     cursor: pointer;
 
+    &:hover {
+        background-color: #CECECE1A;
+    }
+
     >img {
         margin: 19px 0 0 16px;
     }
@@ -135,7 +139,7 @@ const { changeScreen } = toogleScreen()
     &__message-text {
         max-inline-size: 180px;
        
-        @media (width > 317px) {
+        @media (min-width: 317px) {
             max-inline-size: calc(100% - 80px)
         }
 

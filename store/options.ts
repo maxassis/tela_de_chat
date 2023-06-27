@@ -7,6 +7,7 @@ export default () => {
   function changeOption(value: string) {
      if(!value) {
       closeOption.value = false
+      option.value = "*"
       return
      } 
   

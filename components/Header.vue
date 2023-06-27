@@ -91,7 +91,7 @@ onClickOutside(target, () => (showPopup.value = false));
       cursor: pointer;
     }
 
-    @media (width < 600px) {
+    @media (max-width: 600px) {
       justify-content: flex-end;
       gap: 13px;
       align-items: center;
@@ -124,7 +124,7 @@ onClickOutside(target, () => (showPopup.value = false));
       line-height: 13.375px;
     }
 
-    @media (width < 600px) {
+    @media (max-width: 600px) {
       display: grid;
       align-items: center;
     }
@@ -140,7 +140,7 @@ onClickOutside(target, () => (showPopup.value = false));
   &--hide {
     display: block;
 
-    @media (width < 600px) {
+    @media (max-width: 600px) {
       display: none;
     }
   }
@@ -171,7 +171,7 @@ onClickOutside(target, () => (showPopup.value = false));
     block-size: 20px;
     cursor: pointer;
 
-    @media (width < 600px) {
+    @media (max-width: 600px) {
       display: block;
     }
   }

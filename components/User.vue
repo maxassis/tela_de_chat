@@ -82,21 +82,21 @@
 
       <div class="fields__inputs-wrapper">
         <span>Nome da empresa</span>
-        <input class="input" type="text" placeholder="" />
+        <input class="input" type="text" placeholder="." />
         <span>CNPJ:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>E-mail: </span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>Data de cadastro:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>Dados da conta:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>Aparelho de origem:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>Aparelho de origem:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
         <span>Número do ZapGuru:</span>
-        <input class="input" type="text" placeholder=""/>
+        <input class="input" type="text" placeholder="."/>
       </div>
     </div>
 </template>
@@ -154,10 +154,6 @@ const { changeOption } = options()
       font-size: 12px;
     }
 
-    &:focus {
-      box-shadow: 0px 0px 6.13636px rgba(0, 0, 0, 0.1);
-      border-color: #1fbd89;
-    }
   }
 
   &__checkbox-wrapper {
@@ -318,6 +314,12 @@ const { changeOption } = options()
       line-height: 14px;
       color: #bab8b9;
       align-self: center;
+    }
+
+    >input {
+      &::placeholder {
+        color: transparent;
+      }
     }
   }
 }

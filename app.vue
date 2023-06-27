@@ -63,7 +63,7 @@ function showMenu() {
   border-block-start: 0;
   transition: grid-template-columns 0.5s linear;
 
-  @media (width <= 1440px) {
+  @media (max-width: 1440px) {
     border: 0;
   }
 
@@ -71,7 +71,7 @@ function showMenu() {
   //   grid-template-columns: 19.813rem 1fr 0 0 !important;
   // }
 
-  @media (width < 1200px) {
+  @media (max-width: 1200px) {
     grid-template-columns: 1fr 0px 0 0 !important;
   }
     
@@ -103,7 +103,12 @@ function showMenu() {
 .menu {
   grid-column: 4/5;
   grid-row: 2 / 3;
-  overflow: hidden;
+  //overflow: hidden;
+
+  @media (max-width: 1200px) {
+    display: none;
+    pointer-events: none;
+  }
   
 }
 
@@ -121,14 +126,14 @@ function showMenu() {
 
 .messages--open {
 
-  @media(width <1200px) {
+  @media(max-width: 1200px) {
     grid-template-columns: 0 1fr 0 0 !important;
  }
 }
 
 .chalist--open {
 
- @media(width <910px) {
+ @media(max-width: 910px) {
   grid-template-columns: 1fr 0 0 0 !important;
  }
 }
