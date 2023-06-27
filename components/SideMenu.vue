@@ -23,6 +23,9 @@
                 <path fill="#BAB8B9" d="M3.912 5.464a1.182 1.182 0 1 0 2.365 0 1.182 1.182 0 0 0-2.365 0ZM14.79.26H1.39a.63.63 0 0 0-.631.631v13.006c0 .35.282.631.63.631H14.79a.63.63 0 0 0 .63-.63V.891a.63.63 0 0 0-.63-.63Zm-.63 13.007H2.02V1.523h12.14v11.745ZM9.903 5.464a1.182 1.182 0 1 0 2.364 0 1.182 1.182 0 0 0-2.364 0Zm4.93 10.957H1.347c-.325 0-.587.282-.587.63v.71c0 .087.065.158.146.158h14.368c.08 0 .146-.071.146-.158v-.71c.002-.348-.26-.63-.585-.63Zm-3.748-7.41h-5.99a.158.158 0 0 0-.158.158v1.182c0 .087.07.158.158.158h5.99a.158.158 0 0 0 .158-.158V9.17a.158.158 0 0 0-.158-.158Z"/>
             </svg>
         </div>
+
+        <div class="menu__divisor"></div>
+
         <div :class="['menu__item', {'menu--blue': option === 'historic'}]" @click="changeOption('historic')" aria-label="Histórico de atendimento" data-balloon-pos="left">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="none">
                 <path stroke="#BAB8B9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.23" d="M15.72 17.467V8.733M10.48 17.467V3.493M5.24 17.467v-5.24"/>
@@ -44,7 +47,10 @@
                 <path stroke="#BAB8B9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M1.204 1.522 12.976 9.09 1.204 16.657V1.522Z"/>
             </svg>
         </div>
-        <div class="menu__item" @click="changeOption('')" aria-label="Fechar" data-balloon-pos="left">
+
+        <div class="menu__divisor"></div>
+
+        <div class="menu__item" @click="changeOption('')" aria-label="Fechar" data-balloon-pos="left" style="margin-inline-start; 21px">
             <img src="../images/close.svg" />
         </div>
         </div>
@@ -68,6 +74,8 @@ const { changeOption, option } = options()
     gap: 16px;
     block-size: 100%;
     padding: 16px 16px 0 0;
+    background-color: #FFF;
+    border-inline-start: 0.5px solid rgba(206, 206, 206, 0.30);
     
    &__itens-wrapper {
     display: flex;
@@ -97,6 +105,14 @@ const { changeOption, option } = options()
         }
         }
 
+    }
+
+    &__divisor {
+        inline-size: 30px;
+        block-size: 1px;
+        background: #BAB8B9;
+        margin-block-end: 16px;
+        margin-block-start: 8px;
     }
 
     &__options--closed {

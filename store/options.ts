@@ -1,13 +1,18 @@
 import {ref, readonly} from 'vue'
 
-let option = ref("user")
+let option = ref("")
 let closeOption = ref(false)
 
 export default () => {
   function changeOption(value: string) {
      if(!value) {
       closeOption.value = false
-      option.value = "*"
+      setTimeout(() => {
+        option.value = "*"
+      }, 500);
+      
+      
+      
       return
      } 
   

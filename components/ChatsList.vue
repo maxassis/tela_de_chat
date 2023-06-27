@@ -259,6 +259,7 @@ function toggleHide(): void {
     border-radius: 20px;
     gap: 12px;
     position: relative;
+    cursor: auto !important;
 
     svg {
       inset-inline-start: 12px;

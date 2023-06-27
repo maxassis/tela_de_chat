@@ -54,7 +54,7 @@ const { changeScreen } = toogleScreen()
 <style lang="scss" scoped>
 
 .cards-wrapper {
-    overflow: scroll;
+    overflow-y: scroll;
     block-size: calc(100% - 54px);
     background-color: #FFFFFF;
 }

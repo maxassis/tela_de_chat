@@ -117,3 +117,23 @@
   color: #333333 !important;
   
 }
+
+
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: #C1C1C1 transparent;
+// }
+
+*::-webkit-scrollbar {
+  inline-size: 2px;
+  block-size: 3px; /* A altura só é vista quando a rolagem é horizontal */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #C1C1C1;
+}

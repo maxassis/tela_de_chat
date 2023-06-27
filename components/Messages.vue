@@ -201,7 +201,7 @@
               <img src="../images/plus4.svg" />
             </div>
           </div>
-          <img src="../images/plus.svg" @click="teste()"/>
+          <img src="../images/plus.svg" @click="openPlus()"/>
         </div>
         <div class="messages__input-wrapper">
           <textarea type="text" />
@@ -216,8 +216,11 @@
 
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
+import toogleScreen from '@/store/toggleScreen';
+
 let plusMenu = ref(false);
 const target = ref(null)
+const { changeScreen } = toogleScreen()
 
 onClickOutside(target, () => {
   if(plusMenu.value){
@@ -225,7 +228,7 @@ onClickOutside(target, () => {
   }
 })
 
-function teste() {
+function openPlus() {
   if(plusMenu.value){
     plusMenu.value = false
   }
@@ -234,7 +237,6 @@ function teste() {
   }
 
 }
-
 
 </script>
 

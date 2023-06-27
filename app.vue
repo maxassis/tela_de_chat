@@ -103,7 +103,7 @@ function showMenu() {
 .menu {
   grid-column: 4/5;
   grid-row: 2 / 3;
-  //overflow: hidden;
+  background-color: #FFF;
 
   @media (max-width: 1200px) {
     display: none;
