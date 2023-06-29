@@ -14,33 +14,34 @@
           </div>
         </div>
       </div>
-
+    
       <input
-        class="user__input"
+        class="user__input input"
         type="text"
         style="margin-block-start: 12px"
         placeholder="Nome"
       />
-      <input class="user__input" type="text" placeholder="Numero" />
+      <input class="user__input input" type="text" placeholder="Numero" />
       <div class="user__checkbox-wrapper">
-        <div class="user__checkbox">
+        <div :class="['user__checkbox', {'user__checkbox--active' : archive}]">
           <span>Arquivar chat</span>
-          <input type="checkbox" />
+          <input v-model="archive" type="checkbox" />
         </div>
-        <div class="user__checkbox">
+        <div :class="['user__checkbox', {'user__checkbox--active' : chatbot}]">
           <span>Chatbot</span>
-          <input type="checkbox" />
+          <input v-model="chatbot" type="checkbox" />
         </div>
       </div>
-
+      
       <div class="user__resp-wrapper">
         <div>
           <span class="user__resp-title">Responsável</span>
         </div>
-        <div class="user__resp">
-          <select>
-            <option>Enola Sauer</option>
-            <option>Abagail O'Hara</option>
+        <div class="user__resp" >
+          <select v-model="selectNames" :class="{'user__resp--active' : selectNames != ''}">
+            <option value="">Selecione um usuário</option>
+            <option value="1">Enola Sauer</option>
+            <option value="2">Abagail O'Hara</option>
           </select>
           <button>
             Delegar <br />
@@ -102,8 +103,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import options from '../store/options';
 const { changeOption } = options()
+
+let archive = ref(false)
+let chatbot = ref(false)
+let selectNames = ref("")
+
+
 
 </script>
 
@@ -148,7 +156,7 @@ const { changeOption } = options()
     border-radius: 2px;
     margin-block-start: 8px;
     padding-inline-start: 10px;
-    outline: none;
+    //outline: none;
 
     &::placeholder {
       font-size: 12px;
@@ -190,9 +198,17 @@ const { changeOption } = options()
       border: 1px solid #CECECE;
       accent-color: #1fbd89;
     }
+  }
 
+  &__checkbox--active {
+    border-color: #1FBD89;
+    
+    >span {
+      color:#333333;
+    }
 
   }
+
 
   &__resp-wrapper {
     block-size: 107px;
@@ -241,7 +257,18 @@ const { changeOption } = options()
       border: 1px solid #aab9c3;
       color: #aab9c3;
       cursor: pointer;
+
+      &:hover {
+        background-color: #4E73DF;
+        color: #ffffff;
+        border: 0;
+      }
     }
+  }
+
+  &__resp--active {
+    border-color: #1FBD89 !important;
+    color: #333333 !important;
   }
 }
 

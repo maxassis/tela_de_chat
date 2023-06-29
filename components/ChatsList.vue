@@ -44,7 +44,7 @@
     </div>
 
     <div class="inputs-section__group2">
-      <div :class="[showInput ? 'border-green' : '']">
+      <div :class="['inputs-section__toggle-container',showInput ? 'border-green' : '']">
         <span :style="showInput ? 'color: #333333' : 'color: gray'"
           >Mostrar tags</span
         >
@@ -221,7 +221,7 @@ function toggleHide(): void {
       block-size: 32px;
       border: 1px solid #dedede;
       border-radius: 2px;
-      padding-inline-start: 10px;
+      padding-inline: 10px;
 
       > span {
         font-weight: 400;
@@ -235,7 +235,17 @@ function toggleHide(): void {
       color: gray;
     }
   }
+
+  &__toggle-container {
+    inline-size: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
+
+}
+
+
+
 
 .checks {
   &__wrapper {
@@ -391,7 +401,7 @@ path{
   display: inline-block;
   width: 27.857px;
   height: 15px;
-  margin: 10px;
+  // margin: 10px;
 }
 
 /* Giriş stil */
