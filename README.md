@@ -1,63 +1,22 @@
-# Nuxt 3 Minimal Starter
+# Tela de Chats
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+- Tela de um serviço de administração de chats
 
-## Setup
 
-Make sure to install the dependencies:
+## Technologies
 
-```bash
-# npm
-npm install
+- Html, Sass, Typescript e Nuxt 
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
-```
+## Deploy
 
-## Development Server
+[https://tela-de-chat.vercel.app/](https://tela-de-chat.vercel.app/)
 
-Start the development server on `http://localhost:3000`:
 
-```bash
-# npm
-npm run dev
+## Screenshots
 
-# pnpm
-pnpm run dev
+![](https://raw.githubusercontent.com/maxassis/tela_de_chat/master/images/tela1.webp?token=GHSAT0AAAAAACEJOPV725WDLBZ67IECXM3CZE5R2HA)
 
-# yarn
-yarn dev
-```
 
-## Production
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+![](https://raw.githubusercontent.com/maxassis/tela_de_chat/master/images/mobile%20(1).png?token=GHSAT0AAAAAACEJOPV7CPFQUTR3G4VRE6UUZE5R3GQ)
